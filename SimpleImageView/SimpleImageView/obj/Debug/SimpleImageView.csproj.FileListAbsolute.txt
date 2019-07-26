@@ -1,0 +1,10 @@
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\bin\Debug\SimpleImageView.exe.config
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\bin\Debug\SimpleImageView.exe
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\bin\Debug\SimpleImageView.pdb
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.Form1.resources
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.Properties.Resources.resources
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.csproj.GenerateResource.Cache
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.exe
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.pdb
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.csprojAssemblyReference.cache
+D:\Min_Works\0_SharpTest\SimpleImageView\SimpleImageView\obj\Debug\SimpleImageView.csproj.CoreCompileInputs.cache
