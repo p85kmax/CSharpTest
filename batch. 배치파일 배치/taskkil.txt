@@ -1,0 +1,4 @@
+@echo off
+taskkill /IM filegurimain.exe /t /f
+taskkill /IM FG기차 트레이너 v5.00 /t /f
+taskkill /IM editplus.exe /t /f
