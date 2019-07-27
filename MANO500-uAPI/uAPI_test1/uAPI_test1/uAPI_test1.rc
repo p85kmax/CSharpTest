@@ -1,0 +1,299 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Taiwan) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_TRADITIONAL
+#pragma code_page(950)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)\r\n"
+    "LANGUAGE 4, 1\r\n"
+    "#pragma code_page(950)\r\n"
+    "#include ""res\\uAPI_test1.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\uAPI_test1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About uAPI_test1"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "uAPI_test1 Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_UAPI_TEST1_DIALOG DIALOGEX 0, 0, 381, 302
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "uAPI_test1"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Refresh HWM",IDOK,7,279,59,16
+    PUSHBUTTON      "Exit",IDCANCEL,324,279,50,16
+    LTEXT           "BIOS Version :",IDC_STATIC,7,10,69,11
+    EDITTEXT        IDC_BIOSID_EDIT,61,11,80,14,ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "CPU Temp.",IDC_STATIC,7,45,36,8
+    LTEXT           "SYS Temp.",IDC_STATIC,7,59,35,8
+    LTEXT           "CPU FAN.",IDC_STATIC,7,94,32,8
+    LTEXT           "SYS FAN.",IDC_STATIC,7,112,31,8
+    LTEXT           "CPU Vcore.",IDC_STATIC,7,146,37,8
+    LTEXT           "3.3V",IDC_STATIC,7,163,16,8
+    LTEXT           "5V",IDC_STATIC,7,180,9,8
+    LTEXT           "12V",IDC_STATIC,7,197,13,8
+    LTEXT           "-5V",IDC_STATIC,7,214,12,8
+    LTEXT           "-12V",IDC_STATIC,7,231,16,8
+    EDITTEXT        IDC_CPUTemp_EDIT,55,42,67,14,ES_AUTOHSCROLL | ES_NUMBER | NOT WS_TABSTOP
+    EDITTEXT        IDC_SYSTemp_EDIT,55,59,67,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CPUFAN_EDIT,55,94,67,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SYSFAN_EDIT,55,112,67,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CPUVcore_EDIT,55,146,67,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_3V_EDIT,55,163,68,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_5V_EDIT,55,180,68,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_12V_EDIT,55,197,67,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_N5V_EDIT,55,214,67,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_N12V_EDIT,55,231,67,14,ES_AUTOHSCROLL
+    LTEXT           "VBattery",IDC_STATIC,7,248,29,8
+    EDITTEXT        IDC_Vbat_EDIT,55,248,68,14,ES_AUTOHSCROLL
+    LTEXT           "Digital Input/Output status :",IDC_STATIC,132,42,105,8
+    LTEXT           "Pin0",IDC_STATIC,137,93,14,8
+    LTEXT           "Pin1",IDC_STATIC,137,108,14,8
+    LTEXT           "Pin2",IDC_STATIC,137,125,14,8
+    LTEXT           "Pin3",IDC_STATIC,137,140,14,8
+    LTEXT           "Pin4",IDC_STATIC,137,156,14,8
+    LTEXT           "Pin5",IDC_STATIC,137,173,14,8
+    LTEXT           "Pin6",IDC_STATIC,137,188,14,8
+    LTEXT           "Pin7",IDC_STATIC,137,204,14,8
+    LTEXT           "Input",IDC_STATIC,171,80,18,8
+    RADIOBUTTON     "High",IDC_RADIO1,155,93,30,10
+    RADIOBUTTON     "Low",IDC_RADIO2,185,93,29,10
+    RADIOBUTTON     "High",IDC_RADIO3,155,108,30,10
+    RADIOBUTTON     "Low",IDC_RADIO4,185,108,29,10
+    RADIOBUTTON     "High",IDC_RADIO5,155,125,30,10
+    RADIOBUTTON     "Low",IDC_RADIO6,185,125,29,10
+    RADIOBUTTON     "High",IDC_RADIO7,155,140,30,10
+    RADIOBUTTON     "Low",IDC_RADIO8,185,140,29,10
+    RADIOBUTTON     "High",IDC_RADIO9,155,156,30,10
+    RADIOBUTTON     "Low",IDC_RADIO10,185,156,29,10
+    RADIOBUTTON     "High",IDC_RADIO11,155,173,30,10
+    RADIOBUTTON     "Low",IDC_RADIO12,185,173,29,10
+    RADIOBUTTON     "High",IDC_RADIO13,155,188,30,10
+    RADIOBUTTON     "Low",IDC_RADIO14,185,188,29,10
+    RADIOBUTTON     "High",IDC_RADIO15,155,204,30,10
+    RADIOBUTTON     "Low",IDC_RADIO16,185,204,29,10
+    LTEXT           "Output",IDC_STATIC,223,80,24,8
+    RADIOBUTTON     "High",IDC_RADIO17,215,93,30,10
+    RADIOBUTTON     "Low",IDC_RADIO18,246,93,29,10
+    RADIOBUTTON     "High",IDC_RADIO19,215,108,30,10
+    RADIOBUTTON     "Low",IDC_RADIO20,246,108,29,10
+    RADIOBUTTON     "High",IDC_RADIO21,215,125,30,10
+    RADIOBUTTON     "Low",IDC_RADIO22,246,125,29,10
+    RADIOBUTTON     "High",IDC_RADIO23,215,140,30,10
+    RADIOBUTTON     "Low",IDC_RADIO24,246,140,29,10
+    RADIOBUTTON     "High",IDC_RADIO25,215,156,30,10
+    RADIOBUTTON     "Low",IDC_RADIO26,246,156,29,10
+    RADIOBUTTON     "High",IDC_RADIO27,215,173,30,10
+    RADIOBUTTON     "Low",IDC_RADIO28,246,173,29,10
+    RADIOBUTTON     "High",IDC_RADIO29,215,188,30,10
+    RADIOBUTTON     "Low",IDC_RADIO30,246,188,29,10
+    RADIOBUTTON     "High",IDC_RADIO31,215,204,30,10
+    RADIOBUTTON     "Low",IDC_RADIO32,246,204,29,10
+    PUSHBUTTON      "DIO Refresh",IDC_DO_Demo,136,223,50,14
+    LTEXT           "Watch Dog Timer:",IDC_STATIC,286,40,65,8
+    LTEXT           "Timer Base",IDC_STATIC,289,59,36,8
+    CONTROL         "Minute (default)",IDC_RADIO33,"Button",BS_AUTORADIOBUTTON,296,69,67,10
+    CONTROL         "Second",IDC_RADIO34,"Button",BS_AUTORADIOBUTTON,296,82,39,10
+    LTEXT           "Timer Counter(0-255)",IDC_STATIC,289,95,75,8
+    EDITTEXT        IDC_TimerCnt_EDIT,296,105,53,14,ES_NUMBER
+    PUSHBUTTON      "WDT Reload",IDC_WDT_RELOAD,324,221,50,14
+    PUSHBUTTON      "WDT Enable",IDC_WDT_ENABLE,269,221,50,14
+    CHECKBOX        "TimesUp Alarm",IDC_EVENT_CHECK,293,188,58,10,NOT WS_TABSTOP
+    LTEXT           "WDT Output Pin",IDC_STATIC,289,122,52,8
+    CONTROL         "Enable",IDC_RADIO37,"Button",BS_AUTORADIOBUTTON,298,133,37,10
+    CONTROL         "Disable (Default)",IDC_RADIO38,"Button",BS_AUTORADIOBUTTON,298,144,69,10
+    PUSHBUTTON      "WDT Status",IDC_WDT_STATUS,292,172,50,14
+    LTEXT           "Unique Board ID:",IDC_STATIC,186,10,56,8
+    EDITTEXT        IDC_BID_EDIT,247,9,108,14,ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    PUSHBUTTON      "Event CLR",IDC_EVENT_CLR,292,200,50,14
+    LTEXT           "Board Library Input :",IDC_STATIC,7,25,71,8
+    EDITTEXT        IDC_LibraryInput,83,25,80,14
+    EDITTEXT        IDC_LoadStatus,250,28,54,12,ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    PUSHBUTTON      "Loading",IDC_Loading,166,25,50,14
+    LTEXT           "Result:",IDC_STATIC,219,28,24,8
+    LTEXT           "DIO Direction 7    6    5    4    3    2    1    0",IDC_STATIC,132,54,139,8
+    LTEXT           "Output :",IDC_STATIC,132,66,28,8
+    CONTROL         "",IDC_CHECK57,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,175,66,8,10
+    CONTROL         "",IDC_CHECK56,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,186,66,10,10
+    CONTROL         "",IDC_CHECK55,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,198,66,10,10
+    CONTROL         "",IDC_CHECK54,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,210,66,10,10
+    CONTROL         "",IDC_CHECK53,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,222,66,10,10
+    CONTROL         "",IDC_CHECK52,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,234,66,10,10
+    CONTROL         "",IDC_CHECK51,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,246,66,10,10
+    CONTROL         "",IDC_CHECK50,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,259,66,10,10
+    LTEXT           "GMCH Temp.",IDC_STATIC,7,76,47,8
+    EDITTEXT        IDC_GMCHTemp_EDIT,55,76,67,14,ES_AUTOHSCROLL
+    LTEXT           "GMCH FAN.",IDC_STATIC,7,129,42,8
+    EDITTEXT        IDC_GMCHFAN_EDIT,55,129,67,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,0,1,2
+ PRODUCTVERSION 3,0,1,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "AXIOMTEK"
+            VALUE "FileDescription", "Desktop uAPI Testing Program"
+            VALUE "FileVersion", "3, 0, 1, 2"
+            VALUE "InternalName", "uAPI_test1.exe"
+            VALUE "LegalCopyright", "Copyright (C) 2011 AXIOMTEK Co,. LTD."
+            VALUE "OriginalFilename", "uAPI_test1.exe"
+            VALUE "ProductName", "Desktop uAPI Testing Program"
+            VALUE "ProductVersion", "3, 0, 1, 2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_UAPI_TEST1_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 374
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About uAPI_test1..."
+END
+
+#endif    // Chinese (Taiwan) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHT)
+LANGUAGE 4, 1
+#pragma code_page(950)
+#include "res\uAPI_test1.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
