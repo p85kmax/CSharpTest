@@ -40,5 +40,11 @@ namespace GraphDialog
             Form_RS232c dlg = new GraphDialog.Form_RS232c();
             dlg.ShowDialog();
         }
+
+        private void button_UI_Flicker_Click(object sender, EventArgs e)
+        {
+            Form_UIFlicker dlg = new GraphDialog.Form_UIFlicker();
+            dlg.ShowDialog();
+        }
     }
 }
