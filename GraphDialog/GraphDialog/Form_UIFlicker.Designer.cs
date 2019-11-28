@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -67,6 +68,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel_Status = new System.Windows.Forms.Panel();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.panel_Title.SuspendLayout();
             this.panel_Menu.SuspendLayout();
             this.panel_MainView.SuspendLayout();
@@ -205,6 +207,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.zedGraphControl1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button_FirstPage);
             this.tabPage1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -446,6 +449,22 @@
             this.panel_Status.Size = new System.Drawing.Size(838, 22);
             this.panel_Status.TabIndex = 4;
             // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Location = new System.Drawing.Point(0, 58);
+            this.zedGraphControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.ScrollGrace = 0D;
+            this.zedGraphControl1.ScrollMaxX = 0D;
+            this.zedGraphControl1.ScrollMaxY = 0D;
+            this.zedGraphControl1.ScrollMaxY2 = 0D;
+            this.zedGraphControl1.ScrollMinX = 0D;
+            this.zedGraphControl1.ScrollMinY = 0D;
+            this.zedGraphControl1.ScrollMinY2 = 0D;
+            this.zedGraphControl1.Size = new System.Drawing.Size(382, 209);
+            this.zedGraphControl1.TabIndex = 2;
+            this.zedGraphControl1.UseExtendedPrintDialog = true;
+            // 
             // Form_UIFlicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -498,5 +517,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_FirstPage;
         private System.Windows.Forms.Label label2;
+        private ZedGraph.ZedGraphControl zedGraphControl1;
     }
 }
