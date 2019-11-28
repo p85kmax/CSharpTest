@@ -28,7 +28,11 @@ namespace GraphDialog
             Form_Graph dlg = new GraphDialog.Form_Graph();
             dlg.ShowDialog();
         }
-
+        private void button_Graph2_Click(object sender, EventArgs e)
+        {
+            FormGraph_Color dlg = new GraphDialog.FormGraph_Color();
+            dlg.ShowDialog();
+        }
         private void button_Image_Click(object sender, EventArgs e)
         {
             Form_Image dlg = new GraphDialog.Form_Image();
@@ -95,5 +99,7 @@ namespace GraphDialog
             //    k += v;
             //}
         }
+
+
     }
 }

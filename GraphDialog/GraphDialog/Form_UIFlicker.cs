@@ -39,6 +39,7 @@ namespace GraphDialog
         private void Form_UIFlicker_Load(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
+            table.Columns.Add("Item", typeof(string));
             table.Columns.Add("Zone1", typeof(float));
             table.Columns.Add("Zone2", typeof(float));
             table.Columns.Add("Zone3", typeof(float));
@@ -46,27 +47,41 @@ namespace GraphDialog
             table.Columns.Add("Zone5", typeof(float));
             table.Columns.Add("Zone6", typeof(float));
 
-            table.Rows.Add( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6);
-            table.Rows.Add( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6);
-            table.Rows.Add( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6);
-            table.Rows.Add( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6);
-            table.Rows.Add( 0.1, 0.2, 0.3, 0.4, 0.5, 0.6);
-            table.Rows.Add( 0.1);
+
+            float fval = 3.14f;
+            table.Rows.Add("spec", fval, fval, fval, fval, fval, fval);
+            table.Rows.Add("Avg", fval, fval, fval, fval, fval, fval);
+            table.Rows.Add("Max", fval, fval, fval, fval, fval, fval);
+            table.Rows.Add("Min", fval, fval, fval, fval, fval, fval);
+            table.Rows.Add("M-m", fval, fval, fval, fval, fval, fval);
+            table.Rows.Add("Stdev", fval, fval, fval, fval, fval, fval);
+            table.Rows.Add("Var(%)", fval, fval, fval, fval, fval, fval);
 
             dataGridView1.DataSource = table;
 
             ///////////////////////////////////////////////////////////////////////////////
-            for (int i = 1; i < 7; i++)
+            ///    
+
+            string[] titles = new string[] { "spec", "Avg", "Max", "Min", "M-m", "Stdev", "Var(%)" };
+            for (int i = 0; i < 7; i++)
             {
-                double val = i + i / 10.0;
+                double val = (i+1) + (i+1) / 10.0;
 
                 DataGridViewRow dataGridViewRow = new DataGridViewRow();
                 //dataGridViewRow.Cells[0] = val * 1;
+                if (i == 0)
+                    dataGridViewRow.DefaultCellStyle.BackColor = Color.Gray;
 
-                
+                //dataGridView1.Rows[rowIndex].Cells[columnIndex].Style.BackColor = Color.Red;
+
+                dataGridViewRow.Height = 40;
                 dataGridViewRow.CreateCells(dataGridView2, val*1, val * 2, val * 3, val * 4, val * 5, val * 6);
                 dataGridView2.Rows.Add(dataGridViewRow);
+                dataGridView2.Rows[i].HeaderCell.Value = titles[i];
             }
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+            dataGridView2.ClearSelection();
+            dataGridView1.CurrentRow.Selected = false;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)

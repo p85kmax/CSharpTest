@@ -51,7 +51,24 @@ namespace GraphDialog
             chart_100m.ChartAreas[0].AxisX.Maximum = lx.Max();
 
             chart_100m.Series["graphdata"].Points.DataBindXY(lx, ly);
+            ////////////////////////////////////////////////////
 
+            chart_Multi.ChartAreas[0].AxisY.Minimum = ly.Min();
+            chart_Multi.ChartAreas[0].AxisY.Maximum = ly.Max();
+
+            chart_Multi.ChartAreas[0].AxisX.Minimum = lx.Min();
+            chart_Multi.ChartAreas[0].AxisX.Maximum = lx.Max();
+
+            chart_Multi.Series["graphdata"].Points.DataBindXY(lx, ly);
+            chart_Multi.Series["Series3"].Points.DataBindXY(lx, ly);
+
+            chart_Multi.ChartAreas[1].AxisY.Minimum = ly.Min();
+            chart_Multi.ChartAreas[1].AxisY.Maximum = ly.Max();
+
+            chart_Multi.ChartAreas[1].AxisX.Minimum = lx.Min();
+            chart_Multi.ChartAreas[1].AxisX.Maximum = lx.Max();
+            chart_Multi.Series["Series2"].Points.DataBindXY(lx, ly);
+            
             ////////////////////////////////////////////////////
             int count = 20;// list_DataX.Count/100;
             int i = 0;
