@@ -15,8 +15,21 @@ namespace GraphDialog
         public Form_UIFlicker()
         {
             InitializeComponent();
+            InitChart();
         }
 
+        private void InitChart()
+        {
+            chart1.Series[0].Points.AddXY("최민수", 10);
+            chart1.Series[0].Points.AddXY("이정재", 15);
+            chart1.Series[0].Points.AddXY("마동석", 38);
+            chart1.Series[0].Points.AddXY("김윤석", 20);
+            chart1.Series[0].Points.AddXY("하정우", 10);
+            chart1.Series[0].Points.AddXY("최민식", 23);
+            chart1.Series[0].Points.AddXY("조재윤", 10);
+            chart1.Series[0].Points.AddXY("최귀화", 30);
+            chart1.Series[0].Points.AddXY("임시완", 8);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Enabled = true;
