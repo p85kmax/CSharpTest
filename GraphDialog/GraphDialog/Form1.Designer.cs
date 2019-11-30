@@ -89,7 +89,7 @@
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(12, 307);
+            this.chart2.Location = new System.Drawing.Point(12, 69);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -105,7 +105,7 @@
             series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.chart2.Series.Add(series2);
             this.chart2.Series.Add(series3);
-            this.chart2.Size = new System.Drawing.Size(446, 257);
+            this.chart2.Size = new System.Drawing.Size(446, 479);
             this.chart2.TabIndex = 2;
             this.chart2.Text = "chart2";
             title2.Name = "Title1";
