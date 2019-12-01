@@ -21,7 +21,7 @@ namespace GraphDialog
         public FormGraph_Color()
         {
             InitializeComponent();
-
+            Init_PiChart();
             timer1.Interval = 1;
             timer1.Start();
         }
@@ -87,6 +87,18 @@ namespace GraphDialog
             chart_Full.Series["graphdata"].Points.DataBindXY(Fx, Fy);
         }
 
+        private void Init_PiChart()
+        {
+            chart_Pie.Series[0].Points.AddXY("이정재", 10);
+            chart_Pie.Series[0].Points.AddXY("김윤석", 30);
+            chart_Pie.Series[0].Points.AddXY("조승우", 10);
+            chart_Pie.Series[0].Points.AddXY("하정우", 10);
+            chart_Pie.Series[0].Points.AddXY("최민식", 20);
+            chart_Pie.Series[0].Points.AddXY("마동석", 50);
+            chart_Pie.Series[0].Points.AddXY("황정민", 10);
+            
+
+        }
         private void FormGraph_Color_FormClosing(object sender, FormClosingEventArgs e)
         {
 

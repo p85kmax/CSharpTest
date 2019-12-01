@@ -42,6 +42,9 @@
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_100m = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -49,9 +52,11 @@
             this.chart_Multi = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.chart_Pie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chart_100m)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Full)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Multi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Pie)).BeginInit();
             this.SuspendLayout();
             // 
             // chart_100m
@@ -200,7 +205,6 @@
             chartArea4.Name = "ChartArea2";
             this.chart_Multi.ChartAreas.Add(chartArea3);
             this.chart_Multi.ChartAreas.Add(chartArea4);
-            this.chart_Multi.Dock = System.Windows.Forms.DockStyle.Bottom;
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Name = "Legend1";
             legend1.Title = "범례제목";
@@ -272,12 +276,34 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "ChartAreas>Axis>간격>Interval =1.7";
             // 
+            // chart_Pie
+            // 
+            chartArea5.Area3DStyle.Enable3D = true;
+            chartArea5.Area3DStyle.Inclination = 60;
+            chartArea5.Area3DStyle.IsRightAngleAxes = false;
+            chartArea5.Area3DStyle.WallWidth = 20;
+            chartArea5.Name = "ChartArea1";
+            this.chart_Pie.ChartAreas.Add(chartArea5);
+            legend3.Name = "Legend1";
+            this.chart_Pie.Legends.Add(legend3);
+            this.chart_Pie.Location = new System.Drawing.Point(658, 46);
+            this.chart_Pie.Name = "chart_Pie";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart_Pie.Series.Add(series6);
+            this.chart_Pie.Size = new System.Drawing.Size(550, 562);
+            this.chart_Pie.TabIndex = 7;
+            this.chart_Pie.Text = "chart1";
+            // 
             // FormGraph_Color
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
-            this.ClientSize = new System.Drawing.Size(627, 662);
+            this.ClientSize = new System.Drawing.Size(1228, 662);
+            this.Controls.Add(this.chart_Pie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chart_Full);
@@ -290,6 +316,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_100m)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Full)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Multi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Pie)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +331,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_Multi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Pie;
     }
 }
