@@ -35,6 +35,7 @@
             this.button_UI_Flicker = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button_Graph2 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_Image
@@ -113,7 +114,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(618, 13);
+            this.button1.Location = new System.Drawing.Point(416, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 86);
             this.button1.TabIndex = 0;
@@ -127,7 +128,7 @@
             this.button_Graph2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Graph2.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button_Graph2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button_Graph2.Location = new System.Drawing.Point(517, 13);
+            this.button_Graph2.Location = new System.Drawing.Point(113, 115);
             this.button_Graph2.Name = "button_Graph2";
             this.button_Graph2.Size = new System.Drawing.Size(95, 86);
             this.button_Graph2.TabIndex = 0;
@@ -135,12 +136,27 @@
             this.button_Graph2.UseVisualStyleBackColor = false;
             this.button_Graph2.Click += new System.EventHandler(this.button_Graph2_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkViolet;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(315, 115);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 86);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Async";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(806, 111);
+            this.ClientSize = new System.Drawing.Size(523, 214);
             this.Controls.Add(this.button_Graph2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button_GUI);
             this.Controls.Add(this.button_Graph);
             this.Controls.Add(this.button1);
@@ -164,5 +180,6 @@
         private System.Windows.Forms.Button button_UI_Flicker;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button_Graph2;
+        private System.Windows.Forms.Button button2;
     }
 }
