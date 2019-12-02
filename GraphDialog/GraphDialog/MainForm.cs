@@ -102,7 +102,8 @@ namespace GraphDialog
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form_Async dlg = new Form_Async();
+            dlg.ShowDialog();
         }
     }
 }
