@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label_TimeTick = new System.Windows.Forms.Label();
+            this.button_AsyncStart2nd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_Top
@@ -54,13 +55,13 @@
             // 
             // button_AsyncStart
             // 
-            this.button_AsyncStart.BackColor = System.Drawing.Color.Gray;
+            this.button_AsyncStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button_AsyncStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button_AsyncStart.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_AsyncStart.ForeColor = System.Drawing.Color.Yellow;
-            this.button_AsyncStart.Location = new System.Drawing.Point(267, 132);
+            this.button_AsyncStart.Location = new System.Drawing.Point(267, 176);
             this.button_AsyncStart.Name = "button_AsyncStart";
-            this.button_AsyncStart.Size = new System.Drawing.Size(150, 47);
+            this.button_AsyncStart.Size = new System.Drawing.Size(174, 47);
             this.button_AsyncStart.TabIndex = 1;
             this.button_AsyncStart.Text = "Async Start";
             this.button_AsyncStart.UseVisualStyleBackColor = false;
@@ -81,13 +82,13 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Gray;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Yellow;
-            this.button1.Location = new System.Drawing.Point(109, 132);
+            this.button1.Location = new System.Drawing.Point(267, 123);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 47);
+            this.button1.Size = new System.Drawing.Size(174, 47);
             this.button1.TabIndex = 1;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -111,6 +112,20 @@
             this.label_TimeTick.Text = "TimeTick";
             this.label_TimeTick.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // button_AsyncStart2nd
+            // 
+            this.button_AsyncStart2nd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button_AsyncStart2nd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_AsyncStart2nd.Font = new System.Drawing.Font("Consolas", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_AsyncStart2nd.ForeColor = System.Drawing.Color.Yellow;
+            this.button_AsyncStart2nd.Location = new System.Drawing.Point(267, 229);
+            this.button_AsyncStart2nd.Name = "button_AsyncStart2nd";
+            this.button_AsyncStart2nd.Size = new System.Drawing.Size(174, 47);
+            this.button_AsyncStart2nd.TabIndex = 1;
+            this.button_AsyncStart2nd.Text = "Async Start 2nd";
+            this.button_AsyncStart2nd.UseVisualStyleBackColor = false;
+            this.button_AsyncStart2nd.Click += new System.EventHandler(this.button_AsyncStart2nd_Click);
+            // 
             // Form_Async
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -119,6 +134,7 @@
             this.Controls.Add(this.label_TimeTick);
             this.Controls.Add(this.label_Status);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_AsyncStart2nd);
             this.Controls.Add(this.button_AsyncStart);
             this.Controls.Add(this.label_Top);
             this.Name = "Form_Async";
@@ -135,5 +151,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label_TimeTick;
+        private System.Windows.Forms.Button button_AsyncStart2nd;
     }
 }
