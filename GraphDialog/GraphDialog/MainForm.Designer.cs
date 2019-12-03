@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button_Graph2 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button_ChartArray = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_Image
@@ -150,11 +151,26 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button_ChartArray
+            // 
+            this.button_ChartArray.BackColor = System.Drawing.Color.Green;
+            this.button_ChartArray.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_ChartArray.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_ChartArray.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_ChartArray.Location = new System.Drawing.Point(12, 115);
+            this.button_ChartArray.Name = "button_ChartArray";
+            this.button_ChartArray.Size = new System.Drawing.Size(95, 86);
+            this.button_ChartArray.TabIndex = 0;
+            this.button_ChartArray.Text = "Chart Array";
+            this.button_ChartArray.UseVisualStyleBackColor = false;
+            this.button_ChartArray.Click += new System.EventHandler(this.button_ChartArray_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(523, 214);
+            this.Controls.Add(this.button_ChartArray);
             this.Controls.Add(this.button_Graph2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_GUI);
@@ -181,5 +197,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button_Graph2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_ChartArray;
     }
 }

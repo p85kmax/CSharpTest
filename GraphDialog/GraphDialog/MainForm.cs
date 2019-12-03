@@ -50,7 +50,11 @@ namespace GraphDialog
             Form_UIFlicker dlg = new GraphDialog.Form_UIFlicker();
             dlg.ShowDialog();
         }
-
+        private void button_ChartArray_Click(object sender, EventArgs e)
+        {
+            ChartArray dlg = new GraphDialog.ChartArray();
+            dlg.ShowDialog();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -105,5 +109,11 @@ namespace GraphDialog
             Form_Async dlg = new Form_Async();
             dlg.ShowDialog();
         }
+
+        //스레드 풀  가장 쓰기 쉽지만 가장 효과적이진 않다. TreadPool.QueueUserWorkItem -작업 완료시점 모름, 작업수행결과를 못얻어옴, 취소/예외처리 안됨....
+        //Task<int>
+        //Task(Action()).Run(); >> Task.Wait();  
+        //ConfigureWait(false); 병렬화됨.
+
     }
 }
