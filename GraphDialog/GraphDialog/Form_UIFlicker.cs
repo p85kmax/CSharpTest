@@ -19,6 +19,8 @@ namespace GraphDialog
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.SuspendLayout();
+
             dataGridView1.Enabled = true;
             dataGridView2.Rows.RemoveAt(0);
 
@@ -33,7 +35,7 @@ namespace GraphDialog
             //dataGridView1.Rows[row].Cells[column].Value = "";
             dataGridView2[2, 3].Value = 3.14; //세번째 콜룸, 네번째 라우 //인덱스 범위 에러 처리.
 
-
+            this.ResumeLayout(false);
         }
 
         private void Form_UIFlicker_Load(object sender, EventArgs e)
@@ -97,5 +99,32 @@ namespace GraphDialog
                 DataGridViewRow row = dataGridView2.Rows[selectedRow];
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+}
+
+
+public class MyPanel : System.Windows.Forms.Panel
+{
+    public MyPanel()
+    {
+        this.SetStyle(
+            System.Windows.Forms.ControlStyles.UserPaint |
+            System.Windows.Forms.ControlStyles.AllPaintingInWmPaint |
+            System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer,
+            true);
+    }
+    //이 작업을 수행 한 후에(실제로 수행중인 작업을 알지 못하면 디자이너 코드를 편집하지 않아도되지만) Form.Designer.cs를 편집해야합니다.이 파일 안에는 다음과 같은 코드가 있습니다.
+    //this.panelArea = new YourProject.MyPanel();    위의 줄을 다음과 같이 변경해야합니다.
+    //this.panelArea = new MyPanel();    이 단계를 완료하면 내 페인트 프로그램이 더 이상 깜박이지 않습니다.
+
+    //Control.SuspendRedraw()
+    //this.doStuff()
+    //this.doOtherStuff()
+    //this.doSomeReallyCoolStuff()
+    //Control.ResumeRedaw()
 }

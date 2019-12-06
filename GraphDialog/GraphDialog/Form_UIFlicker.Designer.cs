@@ -55,6 +55,7 @@
             this.panel_MainView = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.label1 = new System.Windows.Forms.Label();
             this.button_FirstPage = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -68,7 +69,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel_Status = new System.Windows.Forms.Panel();
-            this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
             this.panel_Title.SuspendLayout();
             this.panel_Menu.SuspendLayout();
             this.panel_MainView.SuspendLayout();
@@ -172,6 +172,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -217,6 +218,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "First Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // zedGraphControl1
+            // 
+            this.zedGraphControl1.Location = new System.Drawing.Point(0, 58);
+            this.zedGraphControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.zedGraphControl1.Name = "zedGraphControl1";
+            this.zedGraphControl1.ScrollGrace = 0D;
+            this.zedGraphControl1.ScrollMaxX = 0D;
+            this.zedGraphControl1.ScrollMaxY = 0D;
+            this.zedGraphControl1.ScrollMaxY2 = 0D;
+            this.zedGraphControl1.ScrollMinX = 0D;
+            this.zedGraphControl1.ScrollMinY = 0D;
+            this.zedGraphControl1.ScrollMinY2 = 0D;
+            this.zedGraphControl1.Size = new System.Drawing.Size(382, 209);
+            this.zedGraphControl1.TabIndex = 2;
+            this.zedGraphControl1.UseExtendedPrintDialog = true;
             // 
             // label1
             // 
@@ -448,22 +465,6 @@
             this.panel_Status.Name = "panel_Status";
             this.panel_Status.Size = new System.Drawing.Size(838, 22);
             this.panel_Status.TabIndex = 4;
-            // 
-            // zedGraphControl1
-            // 
-            this.zedGraphControl1.Location = new System.Drawing.Point(0, 58);
-            this.zedGraphControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.ScrollGrace = 0D;
-            this.zedGraphControl1.ScrollMaxX = 0D;
-            this.zedGraphControl1.ScrollMaxY = 0D;
-            this.zedGraphControl1.ScrollMaxY2 = 0D;
-            this.zedGraphControl1.ScrollMinX = 0D;
-            this.zedGraphControl1.ScrollMinY = 0D;
-            this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(382, 209);
-            this.zedGraphControl1.TabIndex = 2;
-            this.zedGraphControl1.UseExtendedPrintDialog = true;
             // 
             // Form_UIFlicker
             // 
