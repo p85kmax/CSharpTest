@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
 namespace GraphDialog
 {
     public partial class MainForm : Form
@@ -55,9 +55,23 @@ namespace GraphDialog
             ChartArray dlg = new GraphDialog.ChartArray();
             dlg.ShowDialog();
         }
+        private void button_UserControl_Click(object sender, EventArgs e)
+        {
+            Form_UserControl dlg = new GraphDialog.Form_UserControl();
+            dlg.ShowDialog();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
+            byte a, b, c;
+            a = 128;
+            b = 133;
+            c = 200;
+
+            a = (byte)(a - b);
+            b = (byte)(b + c);
+
+            
             List<int> list = new List<int>() { 8, 5, 1 };
 
             list.Sort((f, g) =>
@@ -114,6 +128,101 @@ namespace GraphDialog
         //Task<int>
         //Task(Action()).Run(); >> Task.Wait();  
         //ConfigureWait(false); 병렬화됨.
+        void SaveXml()
+        {
+            // using System.Xml;
+
+            XmlDocument xdoc = new XmlDocument();
+
+            // 루트노드
+            XmlNode root = xdoc.CreateElement("Employees");
+            xdoc.AppendChild(root);
+
+            // Employee#1001
+            XmlNode emp1 = xdoc.CreateElement("Employee");
+            XmlAttribute attr = xdoc.CreateAttribute("Id");
+            attr.Value = "1001";
+            emp1.Attributes.Append(attr);
+
+            XmlNode name1 = xdoc.CreateElement("Name");
+            name1.InnerText = "Tim";
+            emp1.AppendChild(name1);
+
+            XmlNode dept1 = xdoc.CreateElement("Dept");
+            dept1.InnerText = "Sales";
+            emp1.AppendChild(dept1);
+
+            root.AppendChild(emp1);
+
+            // Employee#1002
+            var emp2 = xdoc.CreateElement("Employee");
+            var attr2 = xdoc.CreateAttribute("Id");
+            attr2.Value = "1002";
+            emp2.Attributes.Append(attr2);
+
+            var name2 = xdoc.CreateElement("Name");
+            name2.InnerText = "John";
+            emp2.AppendChild(name2);
+
+            XmlNode dept2 = xdoc.CreateElement("Dept");
+            dept2.InnerText = "HR";
+            emp2.AppendChild(dept2);
+
+            root.AppendChild(emp2);
+
+            // XML 파일 저장
+            xdoc.Save(@"C:\Temp\Emp.xml");
+
+
+            /* 출력파일 Emp.xml
+
+            <Employees>
+              <Employee Id="1001">
+                <Name>Tim</Name>
+                <Dept>Sales</Dept>
+              </Employee>
+              <Employee Id="1002">
+                <Name>John</Name>
+                <Dept>HR</Dept>
+              </Employee>
+            </Employees>
+
+            */
+        }
+        void LoadXml()
+        {
+            // using System.Xml;
+
+            XmlDocument xdoc = new XmlDocument();
+
+            // XML 데이타를 파일에서 로드
+            xdoc.Load(@"C:\Temp\Emp.xml");
+
+            // 특정 노드들을 필터링
+            XmlNodeList nodes = xdoc.SelectNodes("/Employees/Employee");
+
+            foreach (XmlNode emp in nodes)
+            {
+                // Attribute 읽기
+                string id = emp.Attributes["Id"].Value;
+
+                // 특정 자식 Element 읽기
+                string name = emp.SelectSingleNode("./Name").InnerText; //Relative Path 사용
+                string dept = emp.SelectSingleNode("Dept").InnerText;   //간단히 자식 Element명 사용
+                Console.WriteLine(id + "," + name + "," + dept);
+
+                // 자식 노드들에 대해 Loop를 도는 예
+                foreach (XmlNode child in emp.ChildNodes)
+                {
+                    Console.WriteLine("{0}: {1}", child.Name, child.InnerText);
+                }
+            }
+
+            // 특정 Id 속성으로 하나의 Employee 검색 예
+            XmlNode emp1002 = xdoc.SelectSingleNode("/Employees/Employee[@Id='1002']");
+            Console.WriteLine(emp1002.InnerXml);
+        }
+
 
     }
 }
