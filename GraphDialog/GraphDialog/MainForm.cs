@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.IO;
+
 namespace GraphDialog
 {
     public partial class MainForm : Form
@@ -62,66 +64,56 @@ namespace GraphDialog
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
-            byte a, b, c;
-            a = 128;
-            b = 133;
-            c = 200;
-
-            a = (byte)(a - b);
-            b = (byte)(b + c);
-
-            
-            List<int> list = new List<int>() { 8, 5, 1 };
-
-            list.Sort((f, g) =>
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "파일 오픈";
+            dlg.FileName = "Choice ConvertFile";
+            dlg.Filter = "아스키(*.csv)|*.csv|모든 파일(*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
-                int dir = f.CompareTo(g);
+                //File명과 확장자를 가지고 온다.
+                string fileName = dlg.SafeFileName;
+                //File경로와 File명을 모두 가지고 온다.
+                string fileFullName = dlg.FileName;
+                //File경로만 가지고 온다.
+                string filePath = fileFullName.Replace(fileName, "");
+
+
+                StreamReader sr = new StreamReader(fileFullName, Encoding.GetEncoding("euc-kr"));
+                StreamWriter sw = new StreamWriter(fileFullName + "_", false,  Encoding.UTF8);
+
+                int i = 0;
+                int j = 0;
+
+                float x, y;
+                while (!sr.EndOfStream)
+                {
+                    string s = sr.ReadLine();
+                    
+                    
+                    string[] temp = s.Split(',');        // Split() 메서드를 이용하여 ',' 구분하여 잘라냄
+
+                    foreach(var val in temp)
+                    {
+                        x = 0.01f * i;
+                        y = 0.01f * j;
+                        sw.WriteLine(x.ToString() + "," + y.ToString()+ "," + val);
+                        i++;
+                    }
+                    j++;
+                    i = 0;
+                }
+                sr.Close();
+                sw.Close();
                 
-                return dir;
-            });
-            //double pi = 3.141592;
-            //double val = 1;
 
-            //int n = pi.CompareTo(val);
-            //int k = val.CompareTo(pi);
-            //int z = val.CompareTo(1);
-            //List<int> list = new List<int> { 11, 22, 33, 44, 55, 66 };
-            //int A=0, B=0;
-            //var nval= list.Aggregate((f, g) =>
-            //{
-            //    A = f;
-            //    B = g;
-            //    return f*g;
-            //});
-
-            //var cnt = list.Count(k => k > 45);
-
-
-
-            //float[] data = new float[1000];
-            //for(int i=0; i<1000; i++)
-            //{
-            //    data[i] = ((float)i / 10.0f);
-            //}
-
-            //float[] pfdata = data;
-            //for (int i = 0; i < 1000; i++)
-            //{
-            //    data[i] = ((float)(1000- i) / 10.0f);
-            //}
-
-            //double k = 0;
-            //foreach(var v in pfdata)
-            //{
-            //    k += v;
-            //}
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form_Async dlg = new Form_Async();
-            dlg.ShowDialog();
+                      
+
         }
 
         //스레드 풀  가장 쓰기 쉽지만 가장 효과적이진 않다. TreadPool.QueueUserWorkItem -작업 완료시점 모름, 작업수행결과를 못얻어옴, 취소/예외처리 안됨....

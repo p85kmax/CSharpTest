@@ -184,7 +184,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(523, 214);
+            this.ClientSize = new System.Drawing.Size(609, 316);
             this.Controls.Add(this.button_ChartArray);
             this.Controls.Add(this.button_Graph2);
             this.Controls.Add(this.button_UserControl);
