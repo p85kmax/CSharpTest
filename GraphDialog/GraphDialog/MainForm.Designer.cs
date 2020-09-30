@@ -38,6 +38,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button_ChartArray = new System.Windows.Forms.Button();
             this.button_UserControl = new System.Windows.Forms.Button();
+            this.buttonCtrl = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_Image
@@ -180,17 +184,54 @@
             this.button_UserControl.UseVisualStyleBackColor = false;
             this.button_UserControl.Click += new System.EventHandler(this.button_UserControl_Click);
             // 
+            // buttonCtrl
+            // 
+            this.buttonCtrl.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonCtrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCtrl.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.buttonCtrl.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonCtrl.Location = new System.Drawing.Point(12, 235);
+            this.buttonCtrl.Name = "buttonCtrl";
+            this.buttonCtrl.Size = new System.Drawing.Size(95, 86);
+            this.buttonCtrl.TabIndex = 0;
+            this.buttonCtrl.Text = "Ctrl";
+            this.buttonCtrl.UseVisualStyleBackColor = false;
+            this.buttonCtrl.Click += new System.EventHandler(this.buttonCtrl_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Aqua;
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(248, 311);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(210, 163);
+            this.panel1.TabIndex = 1;
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(52, 52);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(109, 70);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(609, 316);
+            this.ClientSize = new System.Drawing.Size(549, 536);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_ChartArray);
             this.Controls.Add(this.button_Graph2);
             this.Controls.Add(this.button_UserControl);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_GUI);
             this.Controls.Add(this.button_Graph);
+            this.Controls.Add(this.buttonCtrl);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_UI_Flicker);
             this.Controls.Add(this.button_RS232c);
@@ -199,6 +240,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -215,5 +257,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button_ChartArray;
         private System.Windows.Forms.Button button_UserControl;
+        private System.Windows.Forms.Button buttonCtrl;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button3;
     }
 }

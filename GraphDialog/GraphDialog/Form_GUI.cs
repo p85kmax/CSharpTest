@@ -100,5 +100,35 @@ namespace GraphDialog
             else //No children, so add the outer xml (trimming off whitespace)
                 treeNode.Text = xmlNode.OuterXml.Trim();
         }
+
+        private void imageBox1_Click(object sender, EventArgs e)
+        {
+
+            imageBox1.Image = Image.FromFile("D:\\Test.bmp");
+            return;
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "파일 오픈";
+            dlg.FileName = "Choice ImageFile";
+            dlg.Filter = "이미지(*.BMP)|*.BMP|모든 파일(*.*)|*.*";
+            this.TopMost = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.ShowInTaskbar = false;
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                //File명과 확장자를 가지고 온다.
+                string fileName = dlg.SafeFileName;
+                //File경로와 File명을 모두 가지고 온다.
+                string fileFullName = dlg.FileName;
+                //File경로만 가지고 온다.
+//string filePath = fileFullName.Replace(fileName, "");
+                var im =Image.FromFile(fileFullName);
+                imageBox1.Image = im;
+
+                //MessageBox.Show("Complete");
+            }
+
+            
+        }
     }
 }

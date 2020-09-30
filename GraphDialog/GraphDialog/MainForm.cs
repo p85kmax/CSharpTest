@@ -16,6 +16,7 @@ namespace GraphDialog
     {
         public MainForm()
         {
+            var a=SystemInformation.MouseHoverTime ;
             InitializeComponent();
         }
 
@@ -96,14 +97,19 @@ namespace GraphDialog
                     {
                         x = 0.01f * i;
                         y = 0.01f * j;
-                        sw.WriteLine(x.ToString() + "," + y.ToString()+ "," + val);
                         i++;
+
+                        if (val == "-99999.9999") continue;
+                        sw.WriteLine(x.ToString() + "," + y.ToString()+ "," + val);
+                    
                     }
                     j++;
                     i = 0;
                 }
                 sr.Close();
                 sw.Close();
+
+                MessageBox.Show("Complete");
                 
 
             }
@@ -215,6 +221,26 @@ namespace GraphDialog
             Console.WriteLine(emp1002.InnerXml);
         }
 
+        private void buttonCtrl_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void panel1_MouseHover(object sender, EventArgs e)
+        {
+          //  panel1.BackColor = Color.DarkBlue;
+           // Invalidate();
+        }
+
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+            panel1.BackColor = Color.DimGray;
+           // Invalidate();
+        }
+
+        private void panel1_MouseEnter(object sender, EventArgs e)
+        {
+            panel1.BackColor = Color.DarkBlue;
+        }
     }
 }
