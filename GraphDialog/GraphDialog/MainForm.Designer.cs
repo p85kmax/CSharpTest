@@ -41,7 +41,9 @@
             this.buttonCtrl = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Image
@@ -202,7 +204,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Aqua;
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(248, 311);
+            this.panel1.Location = new System.Drawing.Point(31, 346);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 163);
             this.panel1.TabIndex = 1;
@@ -219,11 +221,41 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DecimalPlaces = 3;
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDown1.Location = new System.Drawing.Point(535, 282);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(156, 35);
+            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            314,
+            0,
+            0,
+            131072});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(549, 536);
+            this.ClientSize = new System.Drawing.Size(946, 555);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_ChartArray);
             this.Controls.Add(this.button_Graph2);
@@ -241,6 +273,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,5 +293,6 @@
         private System.Windows.Forms.Button buttonCtrl;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

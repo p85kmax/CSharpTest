@@ -85,36 +85,69 @@ namespace GraphDialog
 
 
 
-        void TestR()
+        void TestR(int n)
         {
             Debug.WriteLine("Start---TestR()");
-            for (int i = 0; i < 500; i++)
+            for (int i = 0; i < 100; i++)
             {
-                string str = "TestR" + i.ToString();
-                Debug.WriteLine(str);
+                string str = "--TestR" + i.ToString();
+                Debug.WriteLine(n.ToString()+str);
                 RevisionStatus(str);
                 Thread.Sleep(10);
             }
             Debug.WriteLine("Finish---TestR()");
         }
 
+        async void Test2222222()
+        {
+            Debug.WriteLine("Start---testTask");
+            Task testTask = Task.Run(() => TestR(1));
 
+            Debug.WriteLine("Start---testTask2");
+            Task testTask2 = Task.Run(() => TestR(2));
+
+            await testTask;
+            Debug.WriteLine("Finish---testTask");
+
+            await testTask2;
+            Debug.WriteLine("Finish---testTask22");
+
+            Debug.WriteLine("Finish---TestR()");
+        }
         private void button_Start_Click(object sender, EventArgs e)
         {
-            TestR();
+            TestR(1);
         }
 
         private async void button_AsyncStart_Click(object sender, EventArgs e)
         {
+            button_AsyncStart.Enabled = false;
             Debug.WriteLine("Start--async-TestR()");
-            Task testTask = Task.Run(() => TestR()); //Task.Factory.StartNew
+            label_Debug.Text = "111111";
+            Task testTask = Task.Run(() => Test2222222()); //Task.Factory.StartNew
+
             await testTask;
+            button_AsyncStart.Enabled = true;
+            label_Debug.Text = "111111 Finish";
 
-            Task testTask2 = Task.Run(() => TestR());
+            return;
+            //Thread.Sleep(1000);
+
+            label_Debug.Text = "222222 start";
+            Task testTask2 = Task.Run(() => TestR(3));
+     
             await testTask2;
+            label_Debug.Text = "222222 finish";
+            //Thread.Sleep(1000);
 
-            Task testTask3 = Task.Run(() => TestR());
+
+ 
+
+
+            label_Debug.Text = "333333 start";
+            Task testTask3 = Task.Run(() => TestR(7));
             await testTask3;
+            label_Debug.Text = "333333 finish";
             //testTask3.Wait();
 
             Debug.WriteLine("Finish--async-TestR()");
@@ -188,6 +221,20 @@ namespace GraphDialog
             Debug.WriteLine("Finish -AsyncTest()");
             return task.Result;
         }//출처: https://nowonbun.tistory.com/419 [명월 일지]
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            button2.Enabled = false;
+            Debug.WriteLine("Start--async-TestR()");
+            label_Debug.Text = "111111";
+            Task testTask = Task.Run(() => Test2222222()); //Task.Factory.StartNew
+
+            await testTask;
+            button2.Enabled = true;
+            label_Debug.Text = "111111 Finish";
+
+            return;
+        }
 
 
 

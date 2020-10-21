@@ -117,8 +117,8 @@ namespace GraphDialog
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form_Async dlg = new Form_Async();
-                      
+            Form_Async dlg = new Form_Async()                ;
+            dlg.ShowDialog();
 
         }
 
@@ -241,6 +241,11 @@ namespace GraphDialog
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
             panel1.BackColor = Color.DarkBlue;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            var value = Decimal.ToSingle(numericUpDown1.Value);
         }
     }
 }
