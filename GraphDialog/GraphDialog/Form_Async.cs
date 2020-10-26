@@ -225,6 +225,12 @@ namespace GraphDialog
         private async void button2_Click(object sender, EventArgs e)
         {
             button2.Enabled = false;
+
+            await Task.Delay(5000);
+
+            button2.Enabled = true;
+            return;
+
             Debug.WriteLine("Start--async-TestR()");
             label_Debug.Text = "111111";
             Task testTask = Task.Run(() => Test2222222()); //Task.Factory.StartNew
