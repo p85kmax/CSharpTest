@@ -44,6 +44,8 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button_DataGridForm = new System.Windows.Forms.Button();
             this.button_Files = new System.Windows.Forms.Button();
+            this.textBox_OnlyDigit = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -231,7 +233,7 @@
             0,
             0,
             131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(535, 282);
+            this.numericUpDown1.Location = new System.Drawing.Point(270, 398);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             255,
             0,
@@ -243,7 +245,7 @@
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(156, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(86, 21);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
             314,
@@ -280,11 +282,31 @@
             this.button_Files.UseVisualStyleBackColor = false;
             this.button_Files.Click += new System.EventHandler(this.button_Files_Click);
             // 
+            // textBox_OnlyDigit
+            // 
+            this.textBox_OnlyDigit.Location = new System.Drawing.Point(269, 362);
+            this.textBox_OnlyDigit.Name = "textBox_OnlyDigit";
+            this.textBox_OnlyDigit.Size = new System.Drawing.Size(87, 21);
+            this.textBox_OnlyDigit.TabIndex = 3;
+            this.textBox_OnlyDigit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_OnlyDigit_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.AliceBlue;
+            this.label1.Location = new System.Drawing.Point(271, 346);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "숫자만";
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(946, 555);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox_OnlyDigit);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_ChartArray);
@@ -307,6 +329,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -328,5 +351,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button button_DataGridForm;
         private System.Windows.Forms.Button button_Files;
+        private System.Windows.Forms.TextBox textBox_OnlyDigit;
+        private System.Windows.Forms.Label label1;
     }
 }

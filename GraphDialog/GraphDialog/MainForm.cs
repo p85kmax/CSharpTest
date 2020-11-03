@@ -133,7 +133,9 @@ namespace GraphDialog
             dlg.ShowDialog();
         }
 
-        //스레드 풀  가장 쓰기 쉽지만 가장 효과적이진 않다. TreadPool.QueueUserWorkItem -작업 완료시점 모름, 작업수행결과를 못얻어옴, 취소/예외처리 안됨....
+        //스레드 풀  가장 쓰기 쉽지만 가장 효과적이진 않다.
+        //TreadPool.QueueUserWorkItem -작업 완료시점 모름,
+        //작업수행결과를 못얻어옴, 취소/예외처리 안됨....
         //Task<int>
         //Task(Action()).Run(); >> Task.Wait();  
         //ConfigureWait(false); 병렬화됨.
@@ -259,6 +261,20 @@ namespace GraphDialog
             var value = Decimal.ToSingle(numericUpDown1.Value);
         }
 
+ 
 
+        private void textBox_OnlyDigit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
