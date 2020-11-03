@@ -42,6 +42,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button_DataGridForm = new System.Windows.Forms.Button();
+            this.button_Files = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +130,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "TEST";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_CloudCompare);
             // 
             // button_Graph2
             // 
@@ -241,7 +243,7 @@
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(156, 35);
+            this.numericUpDown1.Size = new System.Drawing.Size(156, 21);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
             314,
@@ -249,6 +251,34 @@
             0,
             131072});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // button_DataGridForm
+            // 
+            this.button_DataGridForm.BackColor = System.Drawing.Color.Black;
+            this.button_DataGridForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_DataGridForm.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_DataGridForm.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_DataGridForm.Location = new System.Drawing.Point(113, 235);
+            this.button_DataGridForm.Name = "button_DataGridForm";
+            this.button_DataGridForm.Size = new System.Drawing.Size(95, 86);
+            this.button_DataGridForm.TabIndex = 0;
+            this.button_DataGridForm.Text = "Grid";
+            this.button_DataGridForm.UseVisualStyleBackColor = false;
+            this.button_DataGridForm.Click += new System.EventHandler(this.button_DataGridForm_Click);
+            // 
+            // button_Files
+            // 
+            this.button_Files.BackColor = System.Drawing.Color.Black;
+            this.button_Files.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Files.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_Files.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_Files.Location = new System.Drawing.Point(214, 235);
+            this.button_Files.Name = "button_Files";
+            this.button_Files.Size = new System.Drawing.Size(95, 86);
+            this.button_Files.TabIndex = 0;
+            this.button_Files.Text = "Files";
+            this.button_Files.UseVisualStyleBackColor = false;
+            this.button_Files.Click += new System.EventHandler(this.button_Files_Click);
             // 
             // MainForm
             // 
@@ -264,6 +294,8 @@
             this.Controls.Add(this.button_GUI);
             this.Controls.Add(this.button_Graph);
             this.Controls.Add(this.buttonCtrl);
+            this.Controls.Add(this.button_Files);
+            this.Controls.Add(this.button_DataGridForm);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_UI_Flicker);
             this.Controls.Add(this.button_RS232c);
@@ -294,5 +326,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button button_DataGridForm;
+        private System.Windows.Forms.Button button_Files;
     }
 }

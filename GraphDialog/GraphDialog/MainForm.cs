@@ -63,7 +63,13 @@ namespace GraphDialog
             Form_UserControl dlg = new GraphDialog.Form_UserControl();
             dlg.ShowDialog();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button_DataGridForm_Click(object sender, EventArgs e)
+        {
+            DataGrigForm dlg = new GraphDialog.DataGrigForm();
+            dlg.ShowDialog();
+        }
+
+        private void button1_Click_CloudCompare(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Title = "파일 오픈";
@@ -120,6 +126,11 @@ namespace GraphDialog
             Form_Async dlg = new Form_Async()                ;
             dlg.ShowDialog();
 
+        }
+        private void button_Files_Click(object sender, EventArgs e)
+        {
+            Form_Files dlg = new Form_Files();
+            dlg.ShowDialog();
         }
 
         //스레드 풀  가장 쓰기 쉽지만 가장 효과적이진 않다. TreadPool.QueueUserWorkItem -작업 완료시점 모름, 작업수행결과를 못얻어옴, 취소/예외처리 안됨....
@@ -247,5 +258,7 @@ namespace GraphDialog
         {
             var value = Decimal.ToSingle(numericUpDown1.Value);
         }
+
+
     }
 }

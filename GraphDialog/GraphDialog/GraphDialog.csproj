@@ -104,6 +104,12 @@
     <Compile Include="ChartArray.Designer.cs">
       <DependentUpon>ChartArray.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGrigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGrigForm.Designer.cs">
+      <DependentUpon>DataGrigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGraph.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     <Compile Include="UserControl_CircleProgress.Designer.cs">
       <DependentUpon>UserControl_CircleProgress.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DataGrigForm.resx">
+      <DependentUpon>DataGrigForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGraph.resx">
       <DependentUpon>FormGraph.cs</DependentUpon>
     </EmbeddedResource>
