@@ -218,12 +218,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(52, 52);
+            this.button3.Location = new System.Drawing.Point(50, 52);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(109, 70);
             this.button3.TabIndex = 0;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // numericUpDown1
             // 
@@ -326,6 +327,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

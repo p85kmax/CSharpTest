@@ -1,0 +1,127 @@
+원도우10 에서 IP변경을 네트워크환경설정에서 일일히 집어넣기 귀찮은 분을 위해 netsh 명령어를 이용하여 배치파일로 만들면 조금 개선될수 있습니다.
+
+해당스크립트를 알맞게 수정하여  bat 저장하여 실행하면 됩니다. 실행될때 사용자권한컨트롤 화면에 예를 눌러주면 IP변경하고 해당정보를 보여줍니다.
+
+아답터이름과 IP, DNS정보는 사용자설정에 맞게 변경해야합니다.
+
+1. 동적(DHCP) IP 변경 스크립트
+
+?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+@echo off
+ :: BatchGotAdmin
+ :-------------------------------------
+ REM  --> 권한을 체크를 합니다.
+ >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+ 
+REM --> If error flag set, we do not have admin.
+ if '%errorlevel%' NEQ '0' (
+     echo Requesting administrative privileges...
+     goto UACPrompt
+ ) else ( goto gotAdmin )
+ 
+:UACPrompt
+     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+     echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+ 
+    "%temp%\getadmin.vbs"
+     exit /B
+ 
+:gotAdmin
+     if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+     pushd "%CD%"
+     CD /D "%~dp0"
+ 
+netsh -c int ip set address "이더넷" dhcp
+netsh int ip set dnsserver "이더넷" dhcp
+netsh interface ip show config "이더넷"
+pause
+
+2. 고정 IP 변경 스크립트
+
+?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+@echo off
+ :: BatchGotAdmin
+ :-------------------------------------
+ REM  --> 권한을 체크를 합니다.
+ >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+ 
+REM --> If error flag set, we do not have admin.
+ if '%errorlevel%' NEQ '0' (
+     echo Requesting administrative privileges...
+     goto UACPrompt
+ ) else ( goto gotAdmin )
+ 
+:UACPrompt
+     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+     echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+ 
+    "%temp%\getadmin.vbs"
+     exit /B
+ 
+:gotAdmin
+     if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+     pushd "%CD%"
+     CD /D "%~dp0"
+ 
+netsh -c int ip set address "이더넷" static 192.168.0.10 255.255.255.0 192.168.0.1 1
+netsh int ip set dnsserver "이더넷" static 168.126.63.1 primary
+netsh interface ip show config "이더넷"
+pause
+
+

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO;
+using System.Net.Sockets;
 
 namespace GraphDialog
 {
@@ -69,8 +70,30 @@ namespace GraphDialog
             dlg.ShowDialog();
         }
 
+        class ABC
+        {
+            public bool IsValid()
+            {
+                return true;
+            }
+        }
         private void button1_Click_CloudCompare(object sender, EventArgs e)
         {
+            ABC abc = null;
+
+            bool btest = false;
+            var c = abc?.IsValid();
+            if (btest= abc?.IsValid() == false)
+            {
+                
+                return;
+
+            }
+
+
+            return;
+
+
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Title = "파일 오픈";
             dlg.FileName = "Choice ConvertFile";
@@ -236,6 +259,9 @@ namespace GraphDialog
 
         private void buttonCtrl_Click(object sender, EventArgs e)
         {
+            Socket soket= new Socket(SocketType.Stream, ProtocolType.Tcp);
+            var time = soket.ReceiveTimeout;
+            var time2 = soket.SendTimeout;
 
         }
 
@@ -275,6 +301,30 @@ namespace GraphDialog
             {
                 e.Handled = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+                int[] arr = { -10, 20, -30, 4, -5 };
+
+                // Predicate의 사용
+                //   Array.Find(int[], Predicate<int>)    
+                int pos = Array.Find(arr, IsPositive);
+
+                // LINQ에서 Func의 사용
+                //   Where(Func<int, bool> predicate)
+                var v = arr.Where(n => n >= 0);
+
+            bool IsPositive(int i)
+            {
+                return i >= 0;
+            }
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
