@@ -47,3 +47,19 @@ echo wrong 66
 
 
 pause
+
+rem  equ equal 동등
+rem  neq not equal 부정
+rem  gtr greater 초과
+rem  geq greater than equal 이상
+rem  leq less than equal 이하
+rem  lss less 미만
+rem  == 문자비교에만 사용
+
+set var1=bbc
+set var2=BBC
+if /i "%var1%" equ "%var2%" (
+	echo result1  // "/i" 옵션으로 대소문자 구별없이 문자 비교함
+) else (
+	echo result2
+)
