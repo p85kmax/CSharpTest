@@ -10,9 +10,22 @@ set destPC=\\192.168.1.
 rem set destPC=d:\SharpPC
 
 :START
-echo ############################# Sharp Patch ################################
+echo ========================== Sharp Patch =============================
 echo 0:All, last ip number : 51 ~ 60
-echo ex)57 //oblique 
+echo _                                                                                                                      
+echo 0 : All Inspector PC
+echo 51 : Align A
+echo 52 : EdgeA-1 (Door) 
+echo 53 : EdgeA-2
+echo 54 : Align B
+echo 55 : EdgeB-1 (Door)
+echo 56 : EdgeB-2
+echo 57 : Oblique A (Top)
+echo 58 : Oblique B (Bottom)
+echo 59 : Normal A (Top)
+echo 60 : Normal B (Bottom)
+echo _                                                                                                                      
+echo ====================================================================
 
 set /p destination_IP=Which one do you want Patch? 
 
