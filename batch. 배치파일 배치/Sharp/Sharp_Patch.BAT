@@ -6,8 +6,8 @@ if "%1"=="/d" (
 )
 cd /d %~dp0
 color A
-set destPC=\\192.168.1.
-rem set destPC=d:\SharpPC
+rem set destPC=\\192.168.1.
+set destPC=d:\SharpPC
 
 :START
 echo ========================== Sharp Patch =============================
@@ -55,6 +55,7 @@ if %destination_IP%==0 (
 	call :Patch 59
 	call :Patch 60
 	echo All Patch Done
+	cls
 	pause
 	goto :START
 	 
@@ -63,6 +64,7 @@ if %destination_IP%==0 (
 	call :Patch %destination_IP%
 	echo Patch Done
 	pause
+	cls
 	goto :START
 )
 
@@ -80,8 +82,8 @@ goto :EOF
 	echo patch start.............................................................
 	
 	
-	set patchpath=\\192.168.1.%_arg1%\Kistem
-	rem set patchpath=%destPC%\%1
+	rem set patchpath=\\192.168.1.%_arg1%\Kistem
+	set patchpath=%destPC%\%1
 	
 	
 	rem Backup #############################################################################
@@ -90,8 +92,8 @@ goto :EOF
 	echo Backup folder = %backupdir%
 	mkdir %backupdir%
 rem	xcopy %patchpath%\bin		%backupdir%		/h /k /y /e /f  /f is full path display
-	xcopy %patchpath%\bin		%backupdir%		/h /k /y /e
-	xcopy %patchpath%\config	%backupdir%		/h /k /y /e
+	xcopy %patchpath%\bin		%backupdir%\bin\		/h /k /y /e
+	xcopy %patchpath%\config	%backupdir%\config\		/h /k /y /e
 
 	rem PATCH COPY #############################################################################
 	echo patch path is = %patchpath%
