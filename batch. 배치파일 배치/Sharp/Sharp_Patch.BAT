@@ -6,11 +6,24 @@ if "%1"=="/d" (
 )
 cd /d %~dp0
 color A
-rem set destPC=\\192.168.1.
-set destPC=d:\SharpPC
+
+set TEST_MODE=true
+
+if /i %TEST_MODE%==true (
+	set destPC=d:\SharpPC
+	Echo Test Mode !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+) else (
+	set destPC=\\192.168.1.
+)
+
 
 :START
 echo ========================== Sharp Patch =============================
+if /i %TEST_MODE%==true (
+	Echo Test Mode !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+)
+Echo Destination PC Group = "%destPC%(input ip)"
+echo _      
 echo 0:All, last ip number : 51 ~ 60
 echo _                                                                                                                      
 echo 0 : All Inspector PC
@@ -29,18 +42,6 @@ echo ====================================================================
 
 set /p destination_IP=Which one do you want Patch? 
 
-if %destination_IP% gtr 60 (
-	cls
-	echo your input is wrong !!!!!!!!!
-	goto :START
-)
-
-if %destination_IP% lss 51 (
-	cls
-	echo your input is wrong !!!!!!!!!
-	goto :START
-)
-
 if %destination_IP%==0 (
 	echo.
 	echo Patch All
@@ -54,9 +55,9 @@ if %destination_IP%==0 (
 	call :Patch 58
 	call :Patch 59
 	call :Patch 60
-	echo All Patch Done
-	cls
+	echo All Patch Done	
 	pause
+	cls
 	goto :START
 	 
 ) else (
@@ -64,9 +65,22 @@ if %destination_IP%==0 (
 	call :Patch %destination_IP%
 	echo Patch Done
 	pause
-	cls
+	
 	goto :START
 )
+
+if %destination_IP% gtr 60 (
+	cls
+	echo your input is wrong !!!!!!!!!
+	goto :START
+)
+
+if %destination_IP% lss 51 (
+	cls
+	echo your input is wrong !!!!!!!!!
+	goto :START
+)
+
 
 echo All job was done ................................................
 echo Press any key to exit.
@@ -76,27 +90,31 @@ goto :EOF
 
 
 :Patch
+	echo --------------------patch start (%1)----------------------------
 	echo _arg1: %1
 	echo _arg2: %2
-
-	echo patch start.............................................................
 	
-	
-	rem set patchpath=\\192.168.1.%_arg1%\Kistem
+if /i %TEST_MODE%==true (
 	set patchpath=%destPC%\%1
-	
+) else (
+	set patchpath=%destPC%%1\Kistem
+)
+	echo ###### "%patchpath%"
 	
 	rem Backup #############################################################################
 	rem net use %1 "" /user:administrator
 	SET backupdir=%patchpath%\backup\%DATE:~0,4%%DATE:~5,2%%DATE:~8,2%_%time:~0,2%%time:~3,2%
-	echo Backup folder = %backupdir%
+	echo Backup Path is = %backupdir%
 	mkdir %backupdir%
+rem	mkdir %backupdir%\bin
+rem	mkdir %backupdir%\config
+	
 rem	xcopy %patchpath%\bin		%backupdir%		/h /k /y /e /f  /f is full path display
 	xcopy %patchpath%\bin		%backupdir%\bin\		/h /k /y /e
 	xcopy %patchpath%\config	%backupdir%\config\		/h /k /y /e
 
 	rem PATCH COPY #############################################################################
-	echo patch path is = %patchpath%
+	echo Patch path is = %patchpath%
 	xcopy .\bin %patchpath%\bin\ /h /k /y /e
 	xcopy .\config %patchpath%\config\ /h /k /y /e
 
@@ -104,7 +122,7 @@ rem	xcopy %patchpath%\bin		%backupdir%		/h /k /y /e /f  /f is full path display
 	rem copy Release\UserManager.exe %1\Update\bin
 	rem echo %date%>%1\Update\PatchDate
 	rem net use %1 /delete
-	echo -------------------------------------------------------------------------------
+	echo --------------------patch finish (%1)----------------------------
 	
 	
 	
