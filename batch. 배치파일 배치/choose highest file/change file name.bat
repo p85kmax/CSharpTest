@@ -52,4 +52,5 @@ for %%a in ( *.mmm ) do (
 	)
 )
 pause > nul
-setlocal Disableextensions
+REM setlocal Disableextensions
+endlocal
