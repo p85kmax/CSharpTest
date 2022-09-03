@@ -326,5 +326,11 @@ namespace GraphDialog
         {
 
         }
+
+        private void btnPropertyGrid_Click(object sender, EventArgs e)
+        {
+            PropertGridDialog dlg = new GraphDialog.PropertGridDialog();
+            dlg.ShowDialog();
+        }
     }
 }

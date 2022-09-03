@@ -46,6 +46,7 @@
             this.button_Files = new System.Windows.Forms.Button();
             this.textBox_OnlyDigit = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPropertyGrid = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -301,6 +302,20 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "숫자만";
             // 
+            // btnPropertyGrid
+            // 
+            this.btnPropertyGrid.BackColor = System.Drawing.Color.Black;
+            this.btnPropertyGrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPropertyGrid.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnPropertyGrid.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPropertyGrid.Location = new System.Drawing.Point(315, 235);
+            this.btnPropertyGrid.Name = "btnPropertyGrid";
+            this.btnPropertyGrid.Size = new System.Drawing.Size(95, 86);
+            this.btnPropertyGrid.TabIndex = 0;
+            this.btnPropertyGrid.Text = "Property";
+            this.btnPropertyGrid.UseVisualStyleBackColor = false;
+            this.btnPropertyGrid.Click += new System.EventHandler(this.btnPropertyGrid_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -319,6 +334,7 @@
             this.Controls.Add(this.buttonCtrl);
             this.Controls.Add(this.button_Files);
             this.Controls.Add(this.button_DataGridForm);
+            this.Controls.Add(this.btnPropertyGrid);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_UI_Flicker);
             this.Controls.Add(this.button_RS232c);
@@ -355,5 +371,6 @@
         private System.Windows.Forms.Button button_Files;
         private System.Windows.Forms.TextBox textBox_OnlyDigit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPropertyGrid;
     }
 }

@@ -110,6 +110,7 @@
     <Compile Include="DataGrigForm.Designer.cs">
       <DependentUpon>DataGrigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeviceInfo.cs" />
     <Compile Include="FormGraph.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +178,12 @@
       <DependentUpon>msProfileGraph.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="PropertGridDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertGridDialog.Designer.cs">
+      <DependentUpon>PropertGridDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControl_CircleProgress.cs">
       <SubType>UserControl</SubType>
@@ -219,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="msProfileGraph.resx">
       <DependentUpon>msProfileGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertGridDialog.resx">
+      <DependentUpon>PropertGridDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
