@@ -41,12 +41,14 @@
             this.label_DCD = new System.Windows.Forms.Label();
             this.label_Break = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Open
             // 
             this.button_Open.Location = new System.Drawing.Point(22, 76);
-            this.button_Open.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button_Open.Margin = new System.Windows.Forms.Padding(6);
             this.button_Open.Name = "button_Open";
             this.button_Open.Size = new System.Drawing.Size(134, 58);
             this.button_Open.TabIndex = 0;
@@ -57,7 +59,7 @@
             // button_Close
             // 
             this.button_Close.Location = new System.Drawing.Point(22, 140);
-            this.button_Close.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button_Close.Margin = new System.Windows.Forms.Padding(6);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(134, 54);
             this.button_Close.TabIndex = 1;
@@ -69,7 +71,7 @@
             // 
             this.comboBox_Com.FormattingEnabled = true;
             this.comboBox_Com.Location = new System.Drawing.Point(22, 24);
-            this.comboBox_Com.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.comboBox_Com.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox_Com.Name = "comboBox_Com";
             this.comboBox_Com.Size = new System.Drawing.Size(130, 32);
             this.comboBox_Com.TabIndex = 2;
@@ -81,7 +83,7 @@
             this.checkBox_RTS.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.checkBox_RTS.ForeColor = System.Drawing.Color.White;
             this.checkBox_RTS.Location = new System.Drawing.Point(22, 248);
-            this.checkBox_RTS.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBox_RTS.Margin = new System.Windows.Forms.Padding(6);
             this.checkBox_RTS.Name = "checkBox_RTS";
             this.checkBox_RTS.Size = new System.Drawing.Size(132, 46);
             this.checkBox_RTS.TabIndex = 3;
@@ -96,7 +98,7 @@
             this.checkBox_DTR.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.checkBox_DTR.ForeColor = System.Drawing.Color.White;
             this.checkBox_DTR.Location = new System.Drawing.Point(182, 248);
-            this.checkBox_DTR.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkBox_DTR.Margin = new System.Windows.Forms.Padding(6);
             this.checkBox_DTR.Name = "checkBox_DTR";
             this.checkBox_DTR.Size = new System.Drawing.Size(135, 46);
             this.checkBox_DTR.TabIndex = 3;
@@ -184,11 +186,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(613, 117);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(271, 90);
+            this.trackBar1.TabIndex = 6;
+            // 
             // Form_RS232c
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 320);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label_Break);
             this.Controls.Add(this.label_DCD);
@@ -200,10 +210,11 @@
             this.Controls.Add(this.comboBox_Com);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.button_Open);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form_RS232c";
             this.Text = "Form_RS232c";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_RS232c_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +234,6 @@
         private System.Windows.Forms.Label label_CTS;
         private System.Windows.Forms.Label label_Break;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }

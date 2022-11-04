@@ -47,6 +47,8 @@
             this.textBox_OnlyDigit = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPropertyGrid = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -247,7 +249,7 @@
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(86, 21);
+            this.numericUpDown1.Size = new System.Drawing.Size(86, 35);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
             314,
@@ -288,7 +290,7 @@
             // 
             this.textBox_OnlyDigit.Location = new System.Drawing.Point(269, 362);
             this.textBox_OnlyDigit.Name = "textBox_OnlyDigit";
-            this.textBox_OnlyDigit.Size = new System.Drawing.Size(87, 21);
+            this.textBox_OnlyDigit.Size = new System.Drawing.Size(87, 35);
             this.textBox_OnlyDigit.TabIndex = 3;
             this.textBox_OnlyDigit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_OnlyDigit_KeyPress);
             // 
@@ -298,7 +300,7 @@
             this.label1.BackColor = System.Drawing.Color.AliceBlue;
             this.label1.Location = new System.Drawing.Point(271, 346);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "숫자만";
             // 
@@ -315,6 +317,34 @@
             this.btnPropertyGrid.Text = "Property";
             this.btnPropertyGrid.UseVisualStyleBackColor = false;
             this.btnPropertyGrid.Click += new System.EventHandler(this.btnPropertyGrid_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Black;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button4.Location = new System.Drawing.Point(517, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 86);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "t2";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Black;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.Location = new System.Drawing.Point(517, 116);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(95, 86);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "t33";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainForm
             // 
@@ -335,6 +365,8 @@
             this.Controls.Add(this.button_Files);
             this.Controls.Add(this.button_DataGridForm);
             this.Controls.Add(this.btnPropertyGrid);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_UI_Flicker);
             this.Controls.Add(this.button_RS232c);
@@ -372,5 +404,7 @@
         private System.Windows.Forms.TextBox textBox_OnlyDigit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPropertyGrid;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

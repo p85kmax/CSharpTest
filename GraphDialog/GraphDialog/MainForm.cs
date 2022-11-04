@@ -10,6 +10,14 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 using System.Net.Sockets;
+using System.Diagnostics;
+using System.Threading;
+using System.Reflection;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
+using System.Security;
+
+
 
 namespace GraphDialog
 {
@@ -332,5 +340,117 @@ namespace GraphDialog
             PropertGridDialog dlg = new GraphDialog.PropertGridDialog();
             dlg.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           // Task testTask2 = Task.Run(() => Check_Sleep_Error());
+            //Thread first = new Thread(new ThreadStart(Check_Sleep_Error)  );
+            var MainThread = new Thread(Check_Sleep_Error);
+            MainThread.Priority = ThreadPriority.Highest;
+            MainThread.Start();
+        }
+
+        static void Check_Sleep_Error()
+        {
+            Debug.WriteLine("Start---Check_Sleep_Error()");
+            StreamWriter sw = new StreamWriter(new FileStream("d:\\SleepTest55.csv", FileMode.Create));
+            Stopwatch watch = new Stopwatch();
+            SWSleep utimer = new SWSleep();
+            for (int i = 0; i < 10000000; i++) ;
+
+                var systimer = new System.Timers.Timer();
+            for (int i = 0; i < 100; i++)
+            {
+                watch.Reset();
+                watch.Start();
+                utimer.MSleep(1000);
+                watch.Stop();
+                double elapsed = (double)watch.ElapsedTicks / (double)Stopwatch.Frequency * 1000.0;
+                Debug.WriteLine(i.ToString(), elapsed.ToString());
+                sw.WriteLine(string.Format("{0},{1}",i, elapsed.ToString()) );
+            }
+            sw.Close();
+            Debug.WriteLine("Finish---Check_Sleep_Error()");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int w = 1024;
+            int h = 768;
+            byte[] data = new byte[w * h];
+
+            for(int j=0; j<h; j++)
+            {
+                for(int i=0; i<w; i++)
+                {
+                    data[j * w + i] =(byte) ((i + j) % 255);
+                }
+            }
+
+
+            IntPtr ptr = Marshal.AllocHGlobal((Int32)w * h);
+            Marshal.Copy(data, 0, ptr, w * h);
+
+            SaveRaw("d:\\mashal.1024.768.raw", ptr,(uint)( w * h));
+
+
+            Marshal.Release(ptr);
+
+        }
+        static void SaveRaw(string filename, IntPtr pData, uint size)
+        {
+            byte[] data = new byte[size];
+
+            for (int i = 0; i < size; i++) data[i] = (byte)(i % 255);
+            FileStream pFile = null;
+            try
+            {
+                Marshal.Copy(pData, data, 0, (int)size);
+                pFile = new FileStream(filename, FileMode.Create);
+                pFile.Write(data, 0, data.Length);
+            }
+            catch
+            {
+                Console.WriteLine("fuck");
+            }
+            finally
+            {
+                pFile.Close();
+            }
+        }
+
     }
+
+
+
+
+    class SWSleep
+    {
+        long freq = 0;
+        public SWSleep()
+        {
+            this.freq = Stopwatch.Frequency;
+            USleep(0);
+        }
+
+        internal void USleep(int us)
+        {
+            double sec = (double)us / 1000000;
+            Stopwatch sw = Stopwatch.StartNew();
+            while (sw.ElapsedTicks / (double)freq < sec)
+            {
+              //  Thread.Sleep(0);
+            }
+        }
+
+        internal void MSleep(int ms)
+        {
+            double sec = (double)ms / 1000;
+            Stopwatch sw = Stopwatch.StartNew();
+            while (sw.ElapsedTicks / (double)freq < sec)
+            {
+              //  Thread.Sleep(0);
+            }
+        }
+    }//    출처: https://ehdrn.tistory.com/402 [동구의 블로그:티스토리]
 }
