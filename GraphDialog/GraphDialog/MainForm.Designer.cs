@@ -49,6 +49,7 @@
             this.btnPropertyGrid = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button_FlowLayout_Panel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -249,7 +250,7 @@
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(86, 35);
+            this.numericUpDown1.Size = new System.Drawing.Size(86, 21);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
             314,
@@ -290,7 +291,7 @@
             // 
             this.textBox_OnlyDigit.Location = new System.Drawing.Point(269, 362);
             this.textBox_OnlyDigit.Name = "textBox_OnlyDigit";
-            this.textBox_OnlyDigit.Size = new System.Drawing.Size(87, 35);
+            this.textBox_OnlyDigit.Size = new System.Drawing.Size(87, 21);
             this.textBox_OnlyDigit.TabIndex = 3;
             this.textBox_OnlyDigit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_OnlyDigit_KeyPress);
             // 
@@ -300,7 +301,7 @@
             this.label1.BackColor = System.Drawing.Color.AliceBlue;
             this.label1.Location = new System.Drawing.Point(271, 346);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 4;
             this.label1.Text = "숫자만";
             // 
@@ -346,6 +347,20 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button_FlowLayout_Panel
+            // 
+            this.button_FlowLayout_Panel.BackColor = System.Drawing.Color.Black;
+            this.button_FlowLayout_Panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_FlowLayout_Panel.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button_FlowLayout_Panel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_FlowLayout_Panel.Location = new System.Drawing.Point(416, 235);
+            this.button_FlowLayout_Panel.Name = "button_FlowLayout_Panel";
+            this.button_FlowLayout_Panel.Size = new System.Drawing.Size(95, 86);
+            this.button_FlowLayout_Panel.TabIndex = 0;
+            this.button_FlowLayout_Panel.Text = "FlowLayout_Panel";
+            this.button_FlowLayout_Panel.UseVisualStyleBackColor = false;
+            this.button_FlowLayout_Panel.Click += new System.EventHandler(this.button_FlowLayout_Panel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -364,6 +379,7 @@
             this.Controls.Add(this.buttonCtrl);
             this.Controls.Add(this.button_Files);
             this.Controls.Add(this.button_DataGridForm);
+            this.Controls.Add(this.button_FlowLayout_Panel);
             this.Controls.Add(this.btnPropertyGrid);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -406,5 +422,6 @@
         private System.Windows.Forms.Button btnPropertyGrid;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button_FlowLayout_Panel;
     }
 }

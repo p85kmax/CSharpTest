@@ -1,0 +1,110 @@
+Marshal.AllocHGlobal((Int32)stFrameInfo.stFrameInfo.nFrameLen);
+Marshal.FreeHGlobal(m_ConvertDstBuf);
+
+
+Marshal.Release(m_BufForDriver);
+
+Marshal.PtrToStructure(m_stDeviceList.pDeviceInfo[cbDeviceList.SelectedIndex], typeof(MyCamera.MV_CC_DEVICE_INFO));
+            // Copy the struct to unmanaged memory.
+            Marshal.StructureToPtr(p, pnt, false);
+
+            // Create another point.
+            Point anotherP;
+
+            // Set this Point to the value of the
+            // Point in unmanaged memory.
+            anotherP = (Point)Marshal.PtrToStructure(pnt, typeof(Point));
+
+
+Marshal.Copy(pData, data, 0, (int)size);
+
+
+        // Get the IUnKnown pointer for the Integer object
+        IntPtr pointer = Marshal.GetIUnknownForObject(obj);
+         // Always call Marshal.Release to decrement the reference count.
+        Marshal.Release(pointer);
+
+
+
+GCHandle pinnedArray = GCHandle.Alloc(byteArray, GCHandleType.Pinned);
+IntPtr pointer = pinnedArray.AddrOfPinnedObject();
+// Do your stuff...
+pinnedArray.Free();
+
+
+byte[] buffer = new byte[255];
+fixed (byte* p = buffer)
+{
+    IntPtr ptr = (IntPtr)p;
+    // do you stuff here
+}
+
+
+Marshal.UnsafeAddrOfPinnedArrayElement(array, 0)배열에 대한 메모리 포인터를 얻는 데 사용할 수 있습니다 
+
+
+class AutoPinner : IDisposable
+{
+   GCHandle _pinnedArray;
+   public AutoPinner(Object obj)
+   {
+      _pinnedArray = GCHandle.Alloc(obj, GCHandleType.Pinned);
+   }
+   public static implicit operator IntPtr(AutoPinner ap)
+   {
+      return ap._pinnedArray.AddrOfPinnedObject();
+   }
+   public void Dispose()
+   {
+      _pinnedArray.Free();
+   }
+}
+using (AutoPinner ap = new AutoPinner(MyManagedObject))
+{
+   UnmanagedIntPtr = ap;  // Use the operator to retrieve the IntPtr
+   //do your stuff
+}
+IntPtr GetIntPtr(Byte[] byteBuf)
+{
+    IntPtr ptr = Marshal.AllocHGlobal(byteBuf.Length);
+    for (int i = 0; i < byteBuf.Length; i++)
+    {
+       Marshal.WriteByte(ptr, i, byteBuf[i]);
+    }
+    return ptr;
+}
+
+
+
+IntPtr unmanagedPointer = Marshal.AllocHGlobal(bytes.Length);
+Marshal.Copy(bytes, 0, unmanagedPointer, bytes.Length);
+// Call unmanaged code
+Marshal.FreeHGlobal(unmanagedPointer);
+
+
+
+GCHandle pinnedArray = GCHandle.Alloc(byteArray, GCHandleType.Pinned);
+IntPtr pointer = pinnedArray.AddrOfPinnedObject();
+// Do your stuff...
+pinnedArray.Free();
+
+이것은 작동하지만 안전하지 않은 상황에서 사용해야합니다
+byte[] buffer = new byte[255];
+fixed (byte* p = buffer)
+{
+    IntPtr ptr = (IntPtr)p;
+    // do you stuff here
+}
+
+Marshal.UnsafeAddrOfPinnedArrayElement(array, 0)배열에 대한 메모리 포인터를 얻는 데 사용할 수 있습니다 .
+
+
+IntPtr GetIntPtr(Byte[] byteBuf)
+{
+    IntPtr ptr = Marshal.AllocHGlobal(byteBuf.Length);
+    for (int i = 0; i < byteBuf.Length; i++)
+    {
+       Marshal.WriteByte(ptr, i, byteBuf[i]);
+    }
+    return ptr;
+}

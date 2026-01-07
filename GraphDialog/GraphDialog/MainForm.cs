@@ -337,8 +337,49 @@ namespace GraphDialog
 
         private void btnPropertyGrid_Click(object sender, EventArgs e)
         {
-            PropertGridDialog dlg = new GraphDialog.PropertGridDialog();
-            dlg.ShowDialog();
+            //PropertGridDialog dlg = new GraphDialog.PropertGridDialog();
+            //dlg.ShowDialog();
+
+            byte[] packet = Encoding.Default.GetBytes("AABBCCDDEEFF");
+            //packet[] = "0x41, 0x41 ,0x42, 0x42,.........0x46, 0x46"
+            short i16 = Convert.ToInt16("AABB", 16); //i16 = 0xffffaabb //signed라서 앞에 부호때문에....
+            short i16_ = Convert.ToInt16("7ABB", 16);  //i16_ = 0x7abb
+            var ui16 = Convert.ToUInt16("AABB", 16); //ui16 = 0xaabb
+            var i162 = Convert.ToInt16("32767", 10); //i162 = 0x7fff = 32767
+
+            int i32 = 0x12345678;
+
+            var bys = BitConverter.GetBytes(i32);  //[0]=0x78, [1]=0x56, [2]=0x34, [3]=0x12; //리틀엔디언임.
+            string str_i32 = BitConverter.ToString(bys); //str_i32 = "78-56-34-12"
+            int rei32 =  BitConverter.ToInt32(bys,0);//rei32 = 0x12345678
+
+            var bys2 = BitConverter.GetBytes((short)32767);  //[0]=0xff, [1]=0x7f;  == 0x7FFF;
+            string str_i16 = BitConverter.ToString(bys2); //str_i16 = "FF-7F"
+            int rei16 = BitConverter.ToInt16(bys2, 0);//rei16 = 0x00007fff
+
+            byte[] array = { 0x00, 0x00, 0x13, 0x88, 0x00, 0x00 }; //0x1388= 5000;
+            var short2 = BitConverter.ToInt16(array, 0);         //short2 = 0x0000
+            var short3 = BitConverter.ToInt16(array, 2);         //short3 = 0xffff8813
+            var short4 = (short)BitConverter.ToInt16(array, 2);  //short4 = 0xffff8813
+
+            int i32_1 = BitConverter.ToInt32(array, 0); //i32_1 = 0x88130000
+            int i32_2 = BitConverter.ToInt32(array, 2); //i32_2 = 0x00008813
+            
+            int i32_3 = BitConverter.ToInt32(array.Skip(2).Take(4).ToArray(), 0); //i32_2 = 0x00008813
+            Array.Reverse(array);
+            int i32_4 = BitConverter.ToInt32(array, 0); //i32_4 = 0x13880000
+            int i32_5 = BitConverter.ToInt32(array, 2); //i32_5 = 0x00001388
+
+            byte[] array2 = { 0x00, 0x01, 0x13, 0x88 }; //0x1388= 5000;
+            Array.Reverse(array2);
+            int i32_6 = BitConverter.ToInt32(array2, 0); //i32_6 = 0x00011388
+
+            var str = string.Format("{0:X04}", i32_6);//str = "11388" //빅엔디언 순서로 변환됨.
+
+            short ss = (short)i32_6;  //상위 비트가 날라감....
+
+            var byte1 = Convert.ToByte("af", 16); //byte1 = 0xaf
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -419,6 +460,14 @@ namespace GraphDialog
             }
         }
 
+        private void button_FlowLayout_Panel_Click(object sender, EventArgs e)
+        {
+            Form form = new Form();
+            var view = new ThumbnailViewer(ViewerMode.WholeImage, true);
+            view.Dock = DockStyle.Fill;
+            form.Controls.Add(view);
+            form.ShowDialog();
+        }
     }
 
 

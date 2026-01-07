@@ -1,0 +1,47 @@
+two-dimensional 1-band data buffer 
+MbufAlloc2d
+data buffer with multiple color bands 
+MbufAllocColor
+
+MbufFree
+
+Allocate a child buffer within a specific region of a parent buffer. 
+MbufChild2d
+
+Allocate a color-band child data buffer within a color parent buffer. 
+MbufChildColor
+
+Clears a buffer to a specified color. 
+void MbufClear
+
+MbufCopy
+
+This function creates a two-dimensional data buffer that maps to a user-specified data array, or another existing buffer
+MbufCreate2d
+
+This function creates a color data buffer using memory at a specified location,
+MbufCreateColor
+
+This function copies data from a specified MIL source buffer to a user-supplied array
+MbufGet
+
+This function loads data from a file into a previously allocated data buffer.
+MbufLoad
+
+This function copies data from a user-supplied array to a specified MIL destination buffer
+MbufPut
+
+MbufPutColor
+
+Decode the color information of a single-band, Bayer color-encoded image. 
+void MbufBayer(
+MIL_ID SrcImageBufId,  //in  
+MIL_ID DestImageBufId,  //in  
+MIL_ID CoefOrExpId,  //in  
+MIL_INT64 ControlFlag  //in  
+) 
+void MbufSave(
+MIL_CONST_TEXT_PTR FileName,  //in  
+MIL_ID BufId  //in  
+) 
+

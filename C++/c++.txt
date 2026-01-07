@@ -1,0 +1,242 @@
+#include <stdio.h>
+#include <iostream>
+// thread를 사용하기 위한 라이브러리
+#include <thread>
+using namespace std;
+// 함수
+void thread_function(int count)
+{
+// 파라미터로 받은 count 수치만큼 반복문을 실행한다.
+for (int i = 0; i < count; i++)
+{
+// 콘솔 출력
+cout << "i - " << i << endl;
+// 쓰레드의 비활성 상태 대기, 10ms간..
+this_thread::sleep_for(chrono::milliseconds(10));
+}
+}
+// 실행 함수
+int main()
+{
+// thraed 생성, thread_function함수를 호출하고 파라미터는 10을 넘긴다.
+thread _t1(thread_function, 10);
+// thraed 생성
+thread _t2(thread_function, 10);
+// 콘솔 출력
+cout << "main process " << endl;
+// thread가 종료될 때까지 대기
+_t1.join();
+_t2.join();
+return 0;
+}
+
+
+출처: https://nowonbun.tistory.com/732 [명월 일지]
+
+
+#include <stdio.h>
+#include <iostream>
+// thread를 사용하기 위한 라이브러리
+#include <thread>
+using namespace std;
+// 테스트를 위한 클래스
+class Node
+{
+private:
+// 변수 선언
+int data = 0;
+public:
+// 가산을 위한 함수
+void addData(int data)
+{
+this->data += data;
+}
+// 값을 리턴
+int getData()
+{
+return this->data;
+}
+};
+// 쓰레드를 위한 함수
+void thread_function(Node* node)
+{
+// 0부터 1000까지 가산 ( 1 + 2 + ... + 999 + 1000 = 500500)
+for (int i = 0; i <= 1000; i++)
+{
+// node 클래스를 가산
+node->addData(i);
+}
+}
+// 실행 함수
+int main()
+{
+// Node 선언
+Node node;
+// 쓰레드를 선언, node를 파라미터로 넘긴다.
+thread _t1(thread_function, &node);
+// 쓰레드를 선언, node를 파라미터로 넘긴다.
+thread _t2(thread_function, &node);
+// 쓰레드가 종료할 때까지 대기
+_t1.join();
+_t2.join();
+// 최종 Node의 값은?
+cout << "Node - " << node.getData() << endl;
+return 0;
+}
+
+
+출처: https://nowonbun.tistory.com/732 [명월 일지]
+
+
+#include <stdio.h>
+#include <iostream>
+// promise와 future를 이용하기 위한 라이브러리
+#include <future>
+// thread를 이용하기 위한 라이브러리
+#include <thread>
+using namespace std;
+// 쓰레드를 위한 함수 (파라미터는 결과를 받기 위한 promise, 반복문의 횟수)
+void thread_function(promise<int>* p, int count)
+{
+// 결과 변수
+int ret = 0;
+// 반복문의 횟수만큼 더한다.
+for (int i = 0; i < count; i++)
+{
+// count가 10이면 0부터 10까지 더하는 함수이다.
+ret += i;
+}
+// 결과를 set_value로 넘긴다.
+p->set_value(ret);
+}
+// 실행 함수
+int main()
+{
+// promise 선언
+promise<int> p;
+// promise와 future를 연결.
+// promise에서 set_value를 하면 future에서 get으로 받는 것이다.
+future<int> data = p.get_future();
+// 쓰레드를 실행하여 promise를 던지고, 반복문의 횟수를 10을 설정한다.
+thread _th(thread_function, &p, 10);
+// data.get()을 하면 promise가 set_value할 때까지 기다린다.
+// 내부적으로 data.wait이 실행된다.
+cout << data.get() << endl;
+// thread를 종료한다.
+_th.join();
+return 0;
+}
+
+
+출처: https://nowonbun.tistory.com/735 [명월 일지]
+
+#include <stdio.h>
+#include <iostream>
+// promise와 future를 이용하기 위한 라이브러리
+#include <future>
+// thread를 이용하기 위한 라이브러리
+#include <thread>
+using namespace std;
+// 쓰레드를 위한 함수 (파라미터는 결과를 받기 위한 promise, 반복문의 횟수)
+void thread_function(promise<int>* p, int count)
+{
+// 결과 변수
+int ret = 0;
+// 반복문의 횟수만큼 더한다.
+for (int i = 0; i < count; i++)
+{
+// count가 10이면 0부터 10까지 더하는 함수이다.
+ret += i;
+}
+// 결과를 set_value로 넘긴다.
+p->set_value(ret);
+}
+// 실행 함수
+int main()
+{
+// promise 선언
+promise<int> p;
+// promise와 share_future를 연결.
+// share_future의 경우는 get을 한번만 사용하는 것이 아니고 여러번 사용가능합니다.
+share_future<int> data = p.get_future();
+// 쓰레드를 실행하여 promise를 던지고, 반복문의 횟수를 10을 설정한다.
+thread _th(thread_function, &p, 10);
+// data.get()을 하면 promise가 set_value할 때까지 기다린다.
+cout << data.get() << endl;
+cout << data.get() << endl;
+cout << data.get() << endl;
+cout << data.get() << endl;
+// thread를 종료한다.
+_th.join();
+return 0;
+}
+
+
+출처: https://nowonbun.tistory.com/735 [명월 일지]
+
+
+#include <stdio.h>
+#include <iostream>
+// promise와 future를 이용하기 위한 라이브러리
+#include <future>
+// thread를 이용하기 위한 라이브러리
+#include <thread>
+using namespace std;
+// 쓰레드를 위한 함수 (promise 파라미터를 빼고 일반 함수 형태이다.)
+int thread_function(int count)
+{
+int ret = 0;
+// count까지 더한다
+for (int i = 0; i < count; i++)
+{
+ret += i;
+}
+// 결과 리턴
+return ret;
+}
+// 실행 함수
+int main()
+{
+// async에 함수명과 파라미터를 설정, 리턴은 future이다.
+shared_future<int> data = async(thread_function, 10);
+// data.get()을 하면 함수가 종료될 때까지 기다린다.
+cout << data.get() << endl;
+cout << data.get() << endl;
+cout << data.get() << endl;
+cout << data.get() << endl;
+return 0;
+}
+
+
+출처: https://nowonbun.tistory.com/735 [명월 일지]
+
+#include <stdio.h>
+#include <iostream>
+// promise와 future를 이용하기 위한 라이브러리
+#include <future>
+// thread를 이용하기 위한 라이브러리
+#include <thread>
+using namespace std;
+// 실행 함수
+int main()
+{
+  // async에 람다식을 넣고, 파라미터는 10을 넣었습니다. 결과는 future로 받으니 get을 바로 호출하면 함수값이 바로나온다.
+  int ret = async([](int count) -> int {
+    int ret = 0;
+    for (int i = 0; i < count; i++)
+    {
+      ret += i;
+    }
+    return ret;
+  }, 10).get();
+  // 콘솔 출력
+  cout << "ret - " << ret << endl;
+ 
+  return 0;
+}
+
+
+출처: https://nowonbun.tistory.com/735 [명월 일지]
+
+
+
